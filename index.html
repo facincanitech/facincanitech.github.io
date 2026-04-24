@@ -5,119 +5,204 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FacincaniTech - Hub de Projetos</title>
     <meta name="description" content="Desenvolvimento de soluções web e aplicativos inovadores.">
-    <!-- Código Google AdSense -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0538362741857960" crossorigin="anonymous"></script>
-    
     <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #050508; /* Fundo quase preto tech */
+            background-color: #050508;
             color: #ffffff;
-            margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
+
+        /* HEADER */
         .header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 60px 20px 50px;
             width: 100%;
             background: linear-gradient(180deg, #0a0e17 0%, #050508 100%);
-            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 243, 255, 0.05);
-            box-sizing: border-box;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.15);
+            position: relative;
+            overflow: hidden;
         }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -80px; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 200px;
+            background: radial-gradient(ellipse, rgba(0, 243, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
         .header h1 {
-            margin: 0;
-            font-size: 3em;
+            font-size: clamp(2em, 6vw, 3.5em);
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3);
-            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+            letter-spacing: 3px;
+            font-weight: 700;
         }
-        .header h1 span {
-            color: #00f3ff; /* Azul Neon */
-        }
+
+        .header h1 span { color: #00f3ff; }
+
         .header p {
-            font-size: 1.2em;
-            color: #8b9bb4;
-            margin-top: 10px;
+            font-size: 1em;
+            color: #6b7a99;
+            margin-top: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             font-weight: 300;
-            letter-spacing: 1px;
         }
+
+        .header-discord {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
+            padding: 9px 20px;
+            background: rgba(88, 101, 242, 0.15);
+            border: 1px solid rgba(88, 101, 242, 0.4);
+            border-radius: 50px;
+            color: #a5aff7;
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .header-discord:hover {
+            background: rgba(88, 101, 242, 0.3);
+            border-color: rgba(88, 101, 242, 0.7);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.2);
+        }
+
+        .header-discord svg { width: 18px; height: 18px; fill: currentColor; }
+
+        /* PROJECTS */
         .projects-container {
-            max-width: 900px;
-            padding: 50px 20px;
+            max-width: 960px;
+            padding: 55px 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 22px;
             width: 100%;
-            box-sizing: border-box;
         }
+
         .project-card {
             background: linear-gradient(145deg, #10141e, #0a0c13);
-            border-radius: 16px;
-            padding: 30px 25px;
+            border-radius: 18px;
+            padding: 32px 26px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s ease;
+            transition: all 0.35s ease;
             text-decoration: none;
             color: white;
             display: block;
             position: relative;
             overflow: hidden;
         }
-        /* Linha brilhante no topo do card */
+
         .project-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00f3ff, transparent);
+            top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent, #00f3ff), transparent);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.35s ease;
         }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(0, 243, 255, 0.04) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+
         .project-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(0, 243, 255, 0.4);
-            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.15);
-            background: linear-gradient(145deg, #141a29, #0c101a);
+            border-color: rgba(0, 243, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 243, 255, 0.1);
         }
-        .project-card:hover::before {
-            opacity: 1;
-        }
+
+        .project-card:hover::before,
+        .project-card:hover::after { opacity: 1; }
+
+        .project-card:hover h2 { color: var(--accent, #00f3ff); }
+
         .icon-wrapper {
-            font-size: 2.5em;
-            margin-bottom: 15px;
+            font-size: 2.8em;
+            margin-bottom: 16px;
             display: inline-block;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.15));
+            transition: transform 0.3s ease;
         }
+
+        .project-card:hover .icon-wrapper { transform: scale(1.1); }
+
         .project-card h2 {
-            margin: 0 0 10px 0;
-            font-size: 1.4em;
+            font-size: 1.35em;
             color: #e2e8f0;
+            margin-bottom: 10px;
             transition: color 0.3s;
+            font-weight: 600;
         }
-        .project-card:hover h2 {
+
+        .project-card p {
+            color: #6b7a99;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.7em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: rgba(0, 243, 255, 0.08);
+            border: 1px solid rgba(0, 243, 255, 0.2);
             color: #00f3ff;
         }
-        .project-card p {
-            color: #8b9bb4;
-            font-size: 0.95em;
-            line-height: 1.5;
-            margin: 0;
-        }
+
+        /* cores por card */
+        .card-grao  { --accent: #00f3ff; }
+        .card-canna { --accent: #4ade80; }
+        .card-evon  { --accent: #a78bfa; }
+
+        .card-grao .tag  { background: rgba(0,243,255,0.08); border-color: rgba(0,243,255,0.25); color: #00f3ff; }
+        .card-canna .tag { background: rgba(74,222,128,0.08); border-color: rgba(74,222,128,0.25); color: #4ade80; }
+        .card-evon .tag  { background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.25); color: #a78bfa; }
+
+        .card-grao:hover  { border-color: rgba(0,243,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,243,255,0.1); }
+        .card-canna:hover { border-color: rgba(74,222,128,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(74,222,128,0.1); }
+        .card-evon:hover  { border-color: rgba(167,139,250,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(167,139,250,0.1); }
+
+        /* FOOTER */
         .footer {
             margin-top: auto;
-            padding: 30px;
+            padding: 28px 20px;
             text-align: center;
-            color: #4b5563;
-            font-size: 0.85em;
+            color: #2d3748;
+            font-size: 0.8em;
             width: 100%;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -125,29 +210,35 @@
     <div class="header">
         <h1>Facincani<span>Tech</span></h1>
         <p>Desenvolvimento e Soluções Digitais</p>
+        <a href="https://discord.gg/j8mV9H7fWP" target="_blank" class="header-discord">
+            <svg viewBox="0 0 71 55"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.6.6a.2.2 0 0 0-.2.1 40.8 40.8 0 0 0-1.8 3.7 54 54 0 0 0-16.2 0A37.2 37.2 0 0 0 25.6.7a.2.2 0 0 0-.2-.1A58.4 58.4 0 0 0 10.9 4.9a.2.2 0 0 0-.1.1C1.6 18.7-.9 32.2.3 45.4a.2.2 0 0 0 .1.2 58.8 58.8 0 0 0 17.7 8.9.2.2 0 0 0 .2-.1 42 42 0 0 0 3.6-5.9.2.2 0 0 0-.1-.3 38.7 38.7 0 0 1-5.5-2.6.2.2 0 0 1 0-.4l1.1-.8a.2.2 0 0 1 .2 0c11.5 5.3 24 5.3 35.4 0a.2.2 0 0 1 .2 0l1.1.8a.2.2 0 0 1 0 .4 36.1 36.1 0 0 1-5.5 2.6.2.2 0 0 0-.1.3 47.1 47.1 0 0 0 3.6 5.9.2.2 0 0 0 .2.1 58.7 58.7 0 0 0 17.7-8.9.2.2 0 0 0 .1-.2c1.5-15.3-2.5-28.6-10.6-40.4a.2.2 0 0 0-.1-.1ZM23.7 37.3c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.6 0 6.4 3.2 6.4 7.1 0 3.9-2.9 7.1-6.4 7.1Zm23.6 0c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.6 0 6.5 3.2 6.5 7.1 0 3.9-2.9 7.1-6.5 7.1Z"/></svg>
+            Comunidade Discord
+        </a>
     </div>
+
     <div class="projects-container">
-        <!-- GrãoNet -->
-        <a href="https://facincanitech.github.io/Grao/" class="project-card">
+        <a href="https://facincanitech.github.io/Grao/" class="project-card card-grao">
             <div class="icon-wrapper">🌾</div>
             <h2>GrãoNet</h2>
-            <p>Plataforma de mineração via navegador que transforma seu tempo online em grãos com valor real.</p>
+            <p>Mineração via navegador que transforma seu tempo em ativos digitais únicos com valor real em BRL.</p>
+            <span class="tag">Ao vivo</span>
         </a>
-        <!-- CannaGuia -->
-        <a href="https://facincanitech.github.io/Cannaguia/" class="project-card">
+        <a href="https://facincanitech.github.io/Cannaguia/" class="project-card card-canna">
             <div class="icon-wrapper">🌿</div>
             <h2>CannaGuia</h2>
-            <p>Guia interativo sobre cannabis medicinal, cultivo e regulamentação.</p>
+            <p>Guia interativo sobre cannabis medicinal, cultivo e regulamentação no Brasil.</p>
+            <span class="tag">Informativo</span>
         </a>
-        <!-- EvOn -->
-        <a href="https://facincanitech.github.io/EvOn/" class="project-card">
+        <a href="https://facincanitech.github.io/EvOn/" class="project-card card-evon">
             <div class="icon-wrapper">🎮</div>
             <h2>EvOn</h2>
             <p>Experiência interativa em formato de game RPG paper cutout.</p>
+            <span class="tag">Game</span>
         </a>
     </div>
+
     <div class="footer">
-        &copy; 2026 FacincaniTech. Todos os direitos reservados.
+        &copy; 2026 FacincaniTech &mdash; Todos os direitos reservados.
     </div>
 </body>
 </html>
