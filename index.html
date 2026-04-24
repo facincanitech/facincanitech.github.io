@@ -4,100 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FacincaniTech - Hub de Projetos</title>
-    <meta name="description" content="Desenvolvimento de soluções web e aplicativos.">
+    <meta name="description" content="Desenvolvimento de soluções web e aplicativos inovadores.">
     <!-- Código Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0538362741857960" crossorigin="anonymous"></script>
     
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #050508; /* Fundo quase preto tech */
             color: #ffffff;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
         .header {
             text-align: center;
-            padding: 50px 20px;
+            padding: 60px 20px;
             width: 100%;
-            background: linear-gradient(135deg, #1b5e20, #003300);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            background: linear-gradient(180deg, #0a0e17 0%, #050508 100%);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 243, 255, 0.05);
+            box-sizing: border-box;
         }
         .header h1 {
             margin: 0;
-            font-size: 2.5em;
-            color: #4ade80;
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3);
+            letter-spacing: 2px;
+        }
+        .header h1 span {
+            color: #00f3ff; /* Azul Neon */
         }
         .header p {
             font-size: 1.2em;
-            color: #bbf7d0;
+            color: #8b9bb4;
             margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
         .projects-container {
             max-width: 900px;
-            padding: 40px 20px;
+            padding: 50px 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
             width: 100%;
+            box-sizing: border-box;
         }
         .project-card {
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            padding: 25px;
+            background: linear-gradient(145deg, #10141e, #0a0c13);
+            border-radius: 16px;
+            padding: 30px 25px;
             text-align: center;
-            border: 1px solid #333;
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
             text-decoration: none;
             color: white;
             display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Linha brilhante no topo do card */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00f3ff, transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(74, 222, 128, 0.2);
-            border-color: #4ade80;
+            transform: translateY(-8px);
+            border-color: rgba(0, 243, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.15);
+            background: linear-gradient(145deg, #141a29, #0c101a);
+        }
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        .icon-wrapper {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: inline-block;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
         }
         .project-card h2 {
-            margin-top: 0;
-            color: #4ade80;
+            margin: 0 0 10px 0;
+            font-size: 1.4em;
+            color: #e2e8f0;
+            transition: color 0.3s;
+        }
+        .project-card:hover h2 {
+            color: #00f3ff;
         }
         .project-card p {
-            color: #aaa;
-            font-size: 0.9em;
+            color: #8b9bb4;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin: 0;
         }
         .footer {
             margin-top: auto;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
-            color: #666;
-            font-size: 0.8em;
+            color: #4b5563;
+            font-size: 0.85em;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>FacincaniTech</h1>
-        <p>Soluções Web e Mobile</p>
+        <h1>Facincani<span>Tech</span></h1>
+        <p>Desenvolvimento e Soluções Digitais</p>
     </div>
     <div class="projects-container">
-
         <!-- GrãoNet -->
-        <a href="https://facincanitech.github.io/Grao/" class="project-card">
-            <h2>🌾 GrãoNet</h2>
+        <a href="https://facincanitech.github.io/GraoNet/" class="project-card">
+            <div class="icon-wrapper">🌾</div>
+            <h2>GrãoNet</h2>
             <p>Plataforma de mineração via navegador que transforma seu tempo online em grãos com valor real.</p>
         </a>
         <!-- CannaGuia -->
         <a href="https://facincanitech.github.io/Cannaguia/" class="project-card">
-            <h2>🌿 CannaGuia</h2>
-            <p>Guia informativo sobre cannabis medicinal, cultivo e legislação no Brasil.</p>
+            <div class="icon-wrapper">🌿</div>
+            <h2>CannaGuia</h2>
+            <p>Guia interativo sobre cannabis medicinal, cultivo e regulamentação.</p>
         </a>
         <!-- EvOn -->
         <a href="https://facincanitech.github.io/EvOn/" class="project-card">
-            <h2>🎮 EvOn</h2>
-            <p>Experiência interativa, game estilo RPG paper cutout.(Em Desenvolvimento)</p>
+            <div class="icon-wrapper">🎮</div>
+            <h2>EvOn</h2>
+            <p>Experiência interativa em formato de game RPG paper cutout.</p>
         </a>
     </div>
     <div class="footer">
