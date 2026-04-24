@@ -1,11 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Página Principal</title>
-    <!-- Código de Verificação do AdSense -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FacincaniTech - Hub de Projetos</title>
+    <meta name="description" content="Desenvolvimento de soluções web e aplicativos.">
+    <!-- Código Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0538362741857960" crossorigin="anonymous"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            width: 100%;
+            background: linear-gradient(135deg, #1b5e20, #003300);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #4ade80;
+        }
+        .header p {
+            font-size: 1.2em;
+            color: #bbf7d0;
+            margin-top: 10px;
+        }
+        .projects-container {
+            max-width: 800px;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+        .project-card {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(74, 222, 128, 0.2);
+            border-color: #4ade80;
+        }
+        .project-card h2 {
+            margin-top: 0;
+            color: #4ade80;
+        }
+        .project-card p {
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        .footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.8em;
+        }
+    </style>
 </head>
 <body>
-    <h1>Site em construção</h1>
+
+    <div class="header">
+        <h1>FacincaniTech</h1>
+        <p>Soluções Web e Mobile</p>
+    </div>
+
+    <div class="projects-container">
+        <!-- CannaGuia -->
+        <a href="https://facincanitech.github.io/Cannaguia/" class="project-card">
+            <h2>🌿 CannaGuia</h2>
+            <p>Guia informativo sobre cannabis medicinal, cultivo e legislação no Brasil.</p>
+        </a>
+
+        <!-- ErvaNet -->
+        <a href="https://facincanitech.github.io/ErvaNet/" class="project-card">
+            <h2>💎 ErvaNet</h2>
+            <p>Plataforma de economia, mineração e marketplace premium.</p>
+        </a>
+
+        <!-- EvOn -->
+        <a href="https://facincanitech.github.io/EvOn/" class="project-card">
+            <h2>🎮 EvOn</h2>
+            <p>Experiência interativa, game estilo RPG paper cutout.</p>
+        </a>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 FacincaniTech. Todos os direitos reservados.
+    </div>
+
 </body>
 </html>
