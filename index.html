@@ -1,3 +1,13 @@
+O erro principal no seu código era que o card do projeto **ClickOn** estava com o nome e as classes duplicadas do **EvOn**, herdando assim a mesma cor e título. 
+
+Fiz as seguintes correções:
+1. **Nome e Ícone**: Mudei o título do terceiro card para "ClickOn" e adicionei o ícone de um mouse (🖱️) em vez de repetir o controle (🎮).
+2. **Cor Customizada no CSS**: Criei a classe `.card-clickon` com uma cor laranja (`#fb923c`) para dar uma identidade visual única e separada do EvOn (roxo).
+3. **Estilos de Hover e Tag**: Ajustei o fundo, bordas e sombras do hover e da tag especificamente para a nova cor laranja do ClickOn.
+
+Aqui está o código completo e arrumado:
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -181,17 +191,20 @@
         }
 
         /* cores por card */
-        .card-grao  { --accent: #00f3ff; }
-        .card-canna { --accent: #4ade80; }
-        .card-evon  { --accent: #a78bfa; }
+        .card-grao    { --accent: #00f3ff; }
+        .card-canna   { --accent: #4ade80; }
+        .card-clickon { --accent: #fb923c; } /* Laranja para ClickOn */
+        .card-evon    { --accent: #a78bfa; }
 
-        .card-grao .tag  { background: rgba(0,243,255,0.08); border-color: rgba(0,243,255,0.25); color: #00f3ff; }
-        .card-canna .tag { background: rgba(74,222,128,0.08); border-color: rgba(74,222,128,0.25); color: #4ade80; }
-        .card-evon .tag  { background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.25); color: #a78bfa; }
+        .card-grao .tag    { background: rgba(0,243,255,0.08); border-color: rgba(0,243,255,0.25); color: #00f3ff; }
+        .card-canna .tag   { background: rgba(74,222,128,0.08); border-color: rgba(74,222,128,0.25); color: #4ade80; }
+        .card-clickon .tag { background: rgba(251,146,60,0.08); border-color: rgba(251,146,60,0.25); color: #fb923c; }
+        .card-evon .tag    { background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.25); color: #a78bfa; }
 
-        .card-grao:hover  { border-color: rgba(0,243,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,243,255,0.1); }
-        .card-canna:hover { border-color: rgba(74,222,128,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(74,222,128,0.1); }
-        .card-evon:hover  { border-color: rgba(167,139,250,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(167,139,250,0.1); }
+        .card-grao:hover    { border-color: rgba(0,243,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,243,255,0.1); }
+        .card-canna:hover   { border-color: rgba(74,222,128,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(74,222,128,0.1); }
+        .card-clickon:hover { border-color: rgba(251,146,60,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(251,146,60,0.1); }
+        .card-evon:hover    { border-color: rgba(167,139,250,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(167,139,250,0.1); }
 
         /* FOOTER */
         .footer {
@@ -229,9 +242,9 @@
             <p>Guia interativo sobre cannabis medicinal, cultivo e regulamentação no Brasil.</p>
             <span class="tag">Informativo</span>
         </a>
-        <a href="https://facincanitech.github.io/ClickOn/" class="project-card card-evon">
-            <div class="icon-wrapper">🎮</div>
-            <h2>EvOn</h2>
+        <a href="https://facincanitech.github.io/ClickOn/" class="project-card card-clickon">
+            <div class="icon-wrapper">🖱️</div>
+            <h2>ClickOn</h2>
             <p>Apenas um jogo.</p>
             <span class="tag">Game</span>
         </a>
@@ -248,3 +261,4 @@
     </div>
 </body>
 </html>
+```
