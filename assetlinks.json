@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.graonet.app",
+    "sha256_cert_fingerprints": [
+      "BC:24:48:1D:E6:09:F0:95:B4:4D:7B:3E:A0:BE:72:5C:69:49:6D:A4:C8:03:89:65:98:CA:E8:11:E3:98:09:22"
+    ]
+  }
+}]
