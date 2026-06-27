@@ -7,4 +7,13 @@
       "BC:24:48:1D:E6:09:F0:95:B4:4D:7B:3E:A0:BE:72:5C:69:49:6D:A4:C8:03:89:65:98:CA:E8:11:E3:98:09:22"
     ]
   }
+}, {
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.facincanitech.sonorhub",
+    "sha256_cert_fingerprints": [
+      "D8:99:F7:B3:8B:3A:FD:5A:BA:EE:28:D1:2C:90:26:62:1C:E7:35:39:E7:91:63:BF:D1:65:29:FD:54:82:47:7C"
+    ]
+  }
 }]
