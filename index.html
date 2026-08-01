@@ -150,6 +150,14 @@
             transition: transform 0.3s ease;
         }
 
+        .icon-wrapper img {
+            width: 1em;
+            height: 1em;
+            object-fit: contain;
+            vertical-align: middle;
+            border-radius: 8px;
+        }
+
         .project-card:hover .icon-wrapper { transform: scale(1.1); }
 
         .project-card h2 {
@@ -233,7 +241,7 @@
 
     <div class="projects-container">
         <a href="https://cronos-app.facincanitech.workers.dev/" class="project-card card-cronos">
-            <div class="icon-wrapper">🗓️</div>
+            <div class="icon-wrapper"><img src="assets/logos/cronos.png" alt="Cronos"></div>
             <h2>Cronos</h2>
             <p>App de agenda conversacional: converse com uma IA que organiza seus compromissos e ajuda na rotina do dia a dia.</p>
             <span class="tag">Produtividade</span>
@@ -269,13 +277,13 @@
             <span class="tag">Game</span>
         </a>
         <a href="https://facincanitech.github.io/Cannaguia/" class="project-card card-canna">
-            <div class="icon-wrapper">🌿</div>
+            <div class="icon-wrapper"><img src="assets/logos/cannaguia.png" alt="CannaGuia"></div>
             <h2>CannaGuia</h2>
             <p>Guia interativo sobre cannabis medicinal, cultivo e regulamentação no Brasil.</p>
             <span class="tag">Informativo</span>
         </a>
         <a href="https://facincanitech.github.io/Grao/" class="project-card card-grao">
-            <div class="icon-wrapper">🌾</div>
+            <div class="icon-wrapper"><img src="assets/logos/grao.png" alt="GrãoNet"></div>
             <h2>GrãoNet</h2>
             <p>Mineração via navegador que transforma seu tempo em ativos digitais únicos com valor real em BRL.</p>
             <span class="tag">Cripto</span>
