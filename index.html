@@ -25,27 +25,20 @@
             text-align: center;
             padding: 60px 20px 50px;
             width: 100%;
-            background: linear-gradient(180deg, #10233d 0%, #050508 100%);
+            background: radial-gradient(ellipse 700px 380px at 50% 0%, #16304f 0%, #10233d 40%, #050508 85%);
             border-bottom: 1px solid rgba(41, 121, 213, 0.2);
             position: relative;
             overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -80px; left: 50%;
-            transform: translateX(-50%);
-            width: 700px; height: 260px;
-            background: radial-gradient(ellipse, rgba(41, 121, 213, 0.28) 0%, transparent 70%);
-            pointer-events: none;
         }
 
         .header-logo {
             max-width: min(560px, 90%);
             height: auto;
             border-radius: 14px;
-            box-shadow: 0 10px 40px rgba(41, 121, 213, 0.35);
+            box-shadow:
+                0 0 30px 6px rgba(22, 48, 79, 0.9),
+                0 0 70px 30px rgba(22, 48, 79, 0.55),
+                0 0 120px 60px rgba(16, 35, 61, 0.3);
         }
 
         .header p {
