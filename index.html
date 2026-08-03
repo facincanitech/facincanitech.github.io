@@ -25,8 +25,8 @@
             text-align: center;
             padding: 60px 20px 50px;
             width: 100%;
-            background: linear-gradient(180deg, #0a0e17 0%, #050508 100%);
-            border-bottom: 1px solid rgba(0, 243, 255, 0.15);
+            background: linear-gradient(180deg, #10233d 0%, #050508 100%);
+            border-bottom: 1px solid rgba(41, 121, 213, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -36,20 +36,17 @@
             position: absolute;
             top: -80px; left: 50%;
             transform: translateX(-50%);
-            width: 600px; height: 200px;
-            background: radial-gradient(ellipse, rgba(0, 243, 255, 0.08) 0%, transparent 70%);
+            width: 700px; height: 260px;
+            background: radial-gradient(ellipse, rgba(41, 121, 213, 0.28) 0%, transparent 70%);
             pointer-events: none;
         }
 
-        .header h1 {
-            font-size: clamp(2em, 6vw, 3.5em);
-            color: #ffffff;
-            text-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
-            letter-spacing: 3px;
-            font-weight: 700;
+        .header-logo {
+            max-width: min(560px, 90%);
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 10px 40px rgba(41, 121, 213, 0.35);
         }
-
-        .header h1 span { color: #00f3ff; }
 
         .header p {
             font-size: 1em;
@@ -270,7 +267,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>Facincani<span>Tech</span></h1>
+        <img src="assets/logos/facincanitech.png" alt="FacincaniTech" class="header-logo">
         <p>Desenvolvimento e Soluções Digitais</p>
         <a href="https://discord.gg/j8mV9H7fWP" target="_blank" class="header-discord">
             <svg viewBox="0 0 71 55"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.6.6a.2.2 0 0 0-.2.1 40.8 40.8 0 0 0-1.8 3.7 54 54 0 0 0-16.2 0A37.2 37.2 0 0 0 25.6.7a.2.2 0 0 0-.2-.1A58.4 58.4 0 0 0 10.9 4.9a.2.2 0 0 0-.1.1C1.6 18.7-.9 32.2.3 45.4a.2.2 0 0 0 .1.2 58.8 58.8 0 0 0 17.7 8.9.2.2 0 0 0 .2-.1 42 42 0 0 0 3.6-5.9.2.2 0 0 0-.1-.3 38.7 38.7 0 0 1-5.5-2.6.2.2 0 0 1 0-.4l1.1-.8a.2.2 0 0 1 .2 0c11.5 5.3 24 5.3 35.4 0a.2.2 0 0 1 .2 0l1.1.8a.2.2 0 0 1 0 .4 36.1 36.1 0 0 1-5.5 2.6.2.2 0 0 0-.1.3 47.1 47.1 0 0 0 3.6 5.9.2.2 0 0 0 .2.1 58.7 58.7 0 0 0 17.7-8.9.2.2 0 0 0 .1-.2c1.5-15.3-2.5-28.6-10.6-40.4a.2.2 0 0 0-.1-.1ZM23.7 37.3c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.6 0 6.4 3.2 6.4 7.1 0 3.9-2.9 7.1-6.4 7.1Zm23.6 0c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.6 0 6.5 3.2 6.5 7.1 0 3.9-2.9 7.1-6.5 7.1Z"/></svg>
