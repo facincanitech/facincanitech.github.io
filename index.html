@@ -192,14 +192,17 @@
         }
 
         .card-ferus .icon-wrapper {
-            margin-bottom: 4px;
+            width: 68px;
+            height: 68px;
+            margin-bottom: 16px;
+            background-image: url('assets/logos/ferus.png');
+            background-size: 380% 200%;
+            background-position: 50% 20%;
+            background-repeat: no-repeat;
+            border-radius: 14px;
         }
 
-        .card-ferus .icon-wrapper img {
-            width: 5.5em;
-            height: 5.5em;
-            border-radius: 0;
-        }
+        .card-ferus .icon-wrapper img { display: none; }
 
         .project-card:hover .icon-wrapper { transform: scale(1.1); }
 
@@ -298,7 +301,7 @@
 
     <div class="projects-container">
         <a href="https://facincanitech.github.io/Ferus/" class="project-card card-ferus">
-            <div class="icon-wrapper"><img src="assets/logos/ferus.png" alt="Ferus"></div>
+            <div class="icon-wrapper" role="img" aria-label="Ferus"><img src="assets/logos/ferus.png" alt="Ferus"></div>
             <h2>Ferus</h2>
             <p>Rede social de mensagens em tempo real, sem edição ou filtro — você é o que pensa, não só o que decide mostrar.</p>
             <span class="tag">Rede Social</span>
