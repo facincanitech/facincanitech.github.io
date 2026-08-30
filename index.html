@@ -191,18 +191,11 @@
             border-radius: 0;
         }
 
-        .card-ferus .icon-wrapper {
-            width: 68px;
-            height: 68px;
-            margin-bottom: 16px;
-            background-image: url('assets/logos/ferus.png');
-            background-size: 380% 200%;
-            background-position: 50% 20%;
-            background-repeat: no-repeat;
-            border-radius: 14px;
+        .card-ferus .icon-wrapper img {
+            width: 1.5em;
+            height: 1.5em;
+            border-radius: 12px;
         }
-
-        .card-ferus .icon-wrapper img { display: none; }
 
         .project-card:hover .icon-wrapper { transform: scale(1.1); }
 
@@ -243,7 +236,7 @@
         .card-ftz { --accent: #84cc16; }
         .card-voicemail { --accent: #f472b6; }
         .card-filoteo { --accent: #c084fc; }
-        .card-ferus { --accent: #f43f5e; }
+        .card-ferus { --accent: #3d5afe; }
         .card-cronos { --accent: #38bdf8; }
         .card-aegis { --accent: #d4af37; }
 
@@ -255,7 +248,7 @@
         .card-ftz .tag { background: rgba(132,204,22,0.08); border-color: rgba(132,204,22,0.25); color: #84cc16; }
         .card-voicemail .tag { background: rgba(244,114,182,0.08); border-color: rgba(244,114,182,0.25); color: #f472b6; }
         .card-filoteo .tag { background: rgba(192,132,252,0.08); border-color: rgba(192,132,252,0.25); color: #c084fc; }
-        .card-ferus .tag { background: rgba(244,63,94,0.08); border-color: rgba(244,63,94,0.25); color: #f43f5e; }
+        .card-ferus .tag { background: rgba(61,90,254,0.08); border-color: rgba(61,90,254,0.25); color: #3d5afe; }
         .card-cronos .tag { background: rgba(56,189,248,0.08); border-color: rgba(56,189,248,0.25); color: #38bdf8; }
         .card-aegis .tag { background: rgba(212,175,55,0.08); border-color: rgba(212,175,55,0.25); color: #d4af37; }
 
@@ -267,7 +260,7 @@
         .card-ftz:hover { border-color: rgba(132,204,22,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(132,204,22,0.1); }
         .card-voicemail:hover { border-color: rgba(244,114,182,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(244,114,182,0.1); }
         .card-filoteo:hover { border-color: rgba(192,132,252,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(192,132,252,0.1); }
-        .card-ferus:hover { border-color: rgba(244,63,94,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(244,63,94,0.1); }
+        .card-ferus:hover { border-color: rgba(61,90,254,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(61,90,254,0.1); }
         .card-cronos:hover { border-color: rgba(56,189,248,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(56,189,248,0.1); }
         .card-aegis:hover { border-color: rgba(212,175,55,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,175,55,0.1); }
 
@@ -300,9 +293,9 @@
     </div>
 
     <div class="projects-container">
-        <a href="https://facincanitech.github.io/Ferus/" class="project-card card-ferus">
-            <div class="icon-wrapper" role="img" aria-label="Ferus"><img src="assets/logos/ferus.png" alt="Ferus"></div>
-            <h2>Ferus</h2>
+        <a href="https://facincanitech.github.io/flux/" class="project-card card-ferus">
+            <div class="icon-wrapper"><img src="assets/logos/flux_messenger.png" alt="Flux Messenger"></div>
+            <h2>Flux Messenger</h2>
             <p>Rede social de mensagens em tempo real, sem edição ou filtro — você é o que pensa, não só o que decide mostrar.</p>
             <span class="tag">Rede Social</span>
         </a>
