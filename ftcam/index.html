@@ -16,12 +16,20 @@ html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
 a{color:var(--acc2)}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(5,5,8,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
+nav .links{display:flex;gap:4px;flex-wrap:wrap}
+nav .links a{color:var(--mut);text-decoration:none;font-size:.92em;padding:7px 14px;border-radius:50px;margin:0}
+nav .links a.on{color:#fff;background:rgba(59,130,246,.18)}
+nav .mini{background:var(--acc);color:#fff;text-decoration:none;font-weight:600;font-size:.88em;padding:8px 16px;border-radius:50px;white-space:nowrap}
+.tab{display:none}.tab.show{display:block}
+section.tab.show:last-of-type{border-bottom:0}
+.next{text-align:center;padding:40px 0 10px}.next.show{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+@media(max-width:820px){nav{flex-wrap:wrap}nav .links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}nav .links a{white-space:nowrap}}
 nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.15em;color:var(--txt);text-decoration:none}
 nav .brand img{width:34px;height:34px;border-radius:9px}
-nav .links a{color:var(--mut);text-decoration:none;margin-left:22px;font-size:.92em}
 nav .links a:hover{color:var(--txt)}
-.hero{text-align:center;padding:70px 0 60px;background:radial-gradient(ellipse 760px 420px at 50% 0%,#132a4a 0%,#0c1a30 45%,var(--bg) 85%);border-bottom:1px solid rgba(59,130,246,.18)}
+.hero{text-align:center;padding:50px 0 60px;background:radial-gradient(ellipse 760px 420px at 50% 0%,#132a4a 0%,#0c1a30 45%,var(--bg) 85%);border-bottom:1px solid rgba(59,130,246,.18)}
 .hero img.logo{width:96px;height:96px;border-radius:24px;box-shadow:0 0 60px 10px rgba(59,130,246,.35)}
 .hero h1{font-size:clamp(2em,5vw,3.2em);margin:18px 0 10px;letter-spacing:-.5px}
 .hero h1 span{color:var(--acc2)}
@@ -105,17 +113,20 @@ details p{color:var(--mut);margin-top:8px;font-size:.94em}
 @media(max-width:820px){.flow{grid-template-columns:1fr}.flow .arrow{transform:rotate(90deg)}}
 footer{text-align:center;padding:40px 0 50px;color:var(--mut);font-size:.88em}
 footer a{color:var(--mut)}
-@media(max-width:820px){.shots,.two{grid-template-columns:1fr}.mock{grid-template-columns:1fr}.mock .side{display:none}nav .links{display:none}}
+@media(max-width:820px){.shots,.two{grid-template-columns:1fr}.mock{grid-template-columns:1fr}.mock .side{display:none}}
 </style>
 </head>
 <body>
+<div class="topbar"><div class="wrap"><nav>
+  <a class="brand" href="#inicio"><img src="icone.png" alt="">FTCam</a>
+  <div class="links">
+    <a href="#inicio" data-tab="inicio">Início</a><a href="#recursos" data-tab="recursos">Recursos</a><a href="#instalar" data-tab="instalar">Instalar</a><a href="#tv" data-tab="tv">TV e celular</a><a href="#privacidade" data-tab="privacidade">Privacidade</a><a href="#duvidas" data-tab="duvidas">Dúvidas</a>
+  </div>
+  <a class="mini" href="https://github.com/facincanitech/ftcam/releases/latest/download/FTCam.zip">Baixar</a>
+</nav></div></div>
 
-<header class="hero">
+<header class="hero tab" data-tab="inicio">
   <div class="wrap">
-    <nav>
-      <a class="brand" href="#"><img src="icone.png" alt="">FTCam</a>
-      <div class="links"><a href="#como">Como funciona</a><a href="#recursos">Recursos</a><a href="#instalar">Instalar</a><a href="#tv">TV e celular</a><a href="#privacidade">Privacidade</a><a href="#duvidas">Dúvidas</a></div>
-    </nav>
     <img class="logo" src="icone.png" alt="FTCam">
     <h1>Suas câmeras gravando <span>no seu computador</span></h1>
     <p class="sub">DVR grátis para câmeras IP, com inteligência artificial que confirma se é pessoa, carro ou animal antes de gravar. Sem nuvem, sem mensalidade e sem cadastro.</p>
@@ -134,7 +145,7 @@ footer a{color:var(--mut)}
 
 <main class="wrap">
 
-<section id="como">
+<section class="tab" data-tab="inicio">
   <h2>Como funciona</h2>
   <p class="lead">São duas partes. O <b>programa do computador</b> é a central: é nele que você instala, configura e grava. Os <b>apps</b> só conectam nele pra assistir.</p>
   <div class="flow">
@@ -147,7 +158,7 @@ footer a{color:var(--mut)}
   <p class="note" style="text-align:left">Ou seja: primeiro instale o programa no computador. O app sozinho não funciona, ele precisa de um computador com o FTCam ligado na mesma rede.</p>
 </section>
 
-<section id="recursos">
+<section class="tab" data-tab="recursos">
   <h2>Tudo que um DVR profissional faz</h2>
   <p class="lead">O computador vira a central das câmeras: grava, analisa e mostra ao vivo. Feito pra rodar até em notebook velho, ligado 24 horas.</p>
   <div class="shots">
@@ -188,22 +199,22 @@ footer a{color:var(--mut)}
   </div>
 </section>
 
-<section id="instalar">
+<section class="tab" data-tab="instalar">
   <h2>Instalar em 3 passos</h2>
   <p class="lead">O instalador confere e baixa tudo que precisa (Python, ffmpeg e os modelos de IA), pedindo permissão de administrador uma vez.</p>
   <div class="steps">
-    <div class="step"><div><b>Baixe e extraia o FTCam.zip</b><p>Use o botão "Baixar para Windows" acima e extraia numa pasta qualquer, por exemplo Downloads.</p></div></div>
+    <div class="step"><div><b>Baixe e extraia o FTCam.zip</b><p>Use o botão "Baixar" no topo da página e extraia numa pasta qualquer, por exemplo Downloads.</p></div></div>
     <div class="step"><div><b>Rode o instalar.bat</b><p>Ele instala o FTCam na sua pasta de usuário (não em Arquivos de Programas), cria o atalho e, se quiser, deixa abrindo junto com o Windows.</p></div></div>
     <div class="step"><div><b>Adicione suas câmeras</b><p>Clique em Câmeras → Procurar na rede. Na Tapo, use o usuário e a senha da <b>Conta da câmera</b> (app Tapo → câmera → Configurações avançadas → Conta da câmera), só com letras e números.</p></div></div>
   </div>
 </section>
 
-<section id="tv">
+<section class="tab" data-tab="tv">
   <h2>Na TV box e no celular</h2>
   <p class="lead">O app é só pra visualizar: ele conecta no FTCam do seu computador e mostra ao vivo, com som, e as gravações. Configurar câmeras, IA e gravação é sempre no computador. Como a tela vem do computador, o app acompanha as novidades sem precisar atualizar.</p>
   <div class="two">
     <div class="steps">
-      <div class="step"><div><b>Instale o FTCamTV.apk</b><p>Baixe pelo botão acima (no navegador da TV box ou no celular) e permita instalar de fontes desconhecidas quando o Android pedir. Funciona no Android 10 ou mais novo.</p></div></div>
+      <div class="step"><div><b>Instale o FTCamTV.apk</b><p>Baixe pelo botão no fim desta página (no navegador da TV box ou no celular) e permita instalar de fontes desconhecidas quando o Android pedir. Funciona no Android 10 ou mais novo.</p></div></div>
       <div class="step"><div><b>Coloque o endereço do computador</b><p>Aparece no FTCam em Sistema, algo como <kbd>192.168.1.7:8080</kbd>. O app também tem o botão "Procurar na rede".</p></div></div>
       <div class="step"><div><b>Pronto</b><p>Se marcar, a TV box já abre nas câmeras quando ligar.</p></div></div>
     </div>
@@ -221,7 +232,7 @@ footer a{color:var(--mut)}
   </div>
 </section>
 
-<section id="privacidade">
+<section class="tab" data-tab="privacidade">
   <h2>Seus dados ficam na sua casa</h2>
   <p class="lead">Nada passa por servidor nosso, porque não existe servidor nosso.</p>
   <div class="priv">
@@ -232,7 +243,7 @@ footer a{color:var(--mut)}
   </div>
 </section>
 
-<section>
+<section class="tab" data-tab="instalar">
   <h2>O que precisa</h2>
   <div class="req">
     <div><b>Computador</b><ul><li>Windows 10 ou 11</li><li>4 GB de RAM (8 GB recomendado)</li><li>Qualquer processador dos últimos 10 anos</li><li>Ligado sempre que quiser gravar</li></ul></div>
@@ -241,7 +252,7 @@ footer a{color:var(--mut)}
   </div>
 </section>
 
-<section id="duvidas">
+<section class="tab" data-tab="duvidas">
   <h2>Dúvidas</h2>
   <details><summary>É grátis mesmo?</summary><p>É. Sem mensalidade, sem versão paga escondida e sem propaganda dentro do programa.</p></details>
   <details><summary>Preciso atualizar na mão?</summary><p>Não. O FTCam confere este site sozinho, baixa a versão nova e reinicia sem mexer nas suas gravações e ajustes. Dá pra desligar isso nos Ajustes.</p></details>
@@ -250,7 +261,7 @@ footer a{color:var(--mut)}
   <details><summary>O Windows Defender reclamou do instalador</summary><p>É comum com programas novos e gratuitos que não têm certificado pago. O código está aberto pra consulta no GitHub, pra quem quiser conferir.</p></details>
 </section>
 
-<section>
+<section class="tab" data-tab="privacidade">
   <h2>Licença</h2>
   <div class="lic">
     <p>O FTCam tem <b>código aberto para consulta</b>: qualquer um pode ver como ele funciona.</p>
@@ -262,10 +273,25 @@ footer a{color:var(--mut)}
   </div>
 </section>
 
+<div class="next tab" data-tab="recursos instalar tv privacidade duvidas">
+  <a class="btn pri" href="https://github.com/facincanitech/ftcam/releases/latest/download/FTCam.zip"><span>Baixar o programa (Windows)<small>FTCam.zip</small></span></a>
+  <a class="btn sec" href="https://github.com/facincanitech/ftcam/releases/latest/download/FTCamTV.apk"><span>App pra assistir (Android)<small>FTCamTV.apk</small></span></a>
+</div>
 </main>
 
 <footer>
   Feito por <a href="https://facincanitech.github.io/">FacincaniTech</a> · <a href="https://github.com/facincanitech/ftcam">GitHub</a> · © 2026
 </footer>
+<script>
+function abrir(tab){
+  if(!document.querySelector('[data-tab~="'+tab+'"].tab'))tab='inicio';
+  document.querySelectorAll('.tab').forEach(e=>e.classList.toggle('show',e.dataset.tab.split(' ').includes(tab)));
+  document.querySelectorAll('nav .links a').forEach(a=>a.classList.toggle('on',a.dataset.tab===tab));
+  setTimeout(()=>window.scrollTo(0,0),0);   // não deixa o navegador pular pro meio da página
+  const on=document.querySelector('nav .links a.on'),bar=document.querySelector('nav .links');if(on)bar.scrollLeft=on.offsetLeft-bar.clientWidth/2+on.clientWidth/2;
+}
+window.addEventListener('hashchange',()=>abrir(location.hash.slice(1)));
+abrir(location.hash.slice(1)||'inicio');
+</script>
 </body>
 </html>
