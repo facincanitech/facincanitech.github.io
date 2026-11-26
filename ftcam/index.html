@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FTCam — DVR grátis para câmeras IP | FacincaniTech</title>
+<meta name="description" content="Grave suas câmeras IP no próprio computador, com IA que confirma pessoa, veículo e animal, reconhecimento de rostos e app para TV box e celular. Grátis, sem nuvem e sem mensalidade.">
+<meta property="og:title" content="FTCam — DVR grátis para câmeras IP">
+<meta property="og:description" content="Grave suas câmeras no computador, com IA, sem nuvem e sem mensalidade. App para TV box e celular.">
+<meta property="og:image" content="https://facincanitech.github.io/ftcam/icone.png">
+<link rel="icon" href="icone.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#050508;--card:#0d1119;--line:rgba(255,255,255,.07);--txt:#e8edf5;--mut:#8b97ad;--acc:#3b82f6;--acc2:#60a5fa;--ok:#22c55e}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+a{color:var(--acc2)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.15em;color:var(--txt);text-decoration:none}
+nav .brand img{width:34px;height:34px;border-radius:9px}
+nav .links a{color:var(--mut);text-decoration:none;margin-left:22px;font-size:.92em}
+nav .links a:hover{color:var(--txt)}
+.hero{text-align:center;padding:70px 0 60px;background:radial-gradient(ellipse 760px 420px at 50% 0%,#132a4a 0%,#0c1a30 45%,var(--bg) 85%);border-bottom:1px solid rgba(59,130,246,.18)}
+.hero img.logo{width:96px;height:96px;border-radius:24px;box-shadow:0 0 60px 10px rgba(59,130,246,.35)}
+.hero h1{font-size:clamp(2em,5vw,3.2em);margin:18px 0 10px;letter-spacing:-.5px}
+.hero h1 span{color:var(--acc2)}
+.hero p.sub{color:var(--mut);font-size:1.15em;max-width:680px;margin:0 auto}
+.pills{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:22px 0 30px}
+.pills span{font-size:.82em;padding:5px 12px;border-radius:50px;border:1px solid var(--line);color:var(--mut);background:rgba(255,255,255,.02)}
+.dl{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:14px 24px;border-radius:14px;text-decoration:none;font-weight:600;transition:.25s;border:1px solid transparent}
+.btn small{display:block;font-weight:400;font-size:.78em;opacity:.8}
+.btn.pri{background:var(--acc);color:#fff;box-shadow:0 10px 30px rgba(59,130,246,.35)}
+.btn.pri:hover{background:#2563eb;transform:translateY(-2px)}
+.btn.sec{background:rgba(255,255,255,.04);color:var(--txt);border-color:var(--line)}
+.btn.sec:hover{border-color:rgba(59,130,246,.5);transform:translateY(-2px)}
+.btn svg{width:26px;height:26px;flex:none}
+.note{color:var(--mut);font-size:.85em;margin-top:16px}
+section{padding:70px 0;border-bottom:1px solid var(--line)}
+h2{font-size:1.9em;margin-bottom:8px;letter-spacing:-.3px}
+.lead{color:var(--mut);margin-bottom:34px;max-width:720px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.feat{background:linear-gradient(145deg,#10141e,#0a0c13);border:1px solid var(--line);border-radius:16px;padding:24px}
+.feat .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(59,130,246,.12);color:var(--acc2);margin-bottom:14px}
+.feat .ic svg{width:22px;height:22px}
+.feat h3{font-size:1.05em;margin-bottom:6px}
+.feat p{color:var(--mut);font-size:.93em}
+/* mockups desenhados (sem fotos de ninguém) */
+.shots{display:grid;grid-template-columns:1.6fr 1fr;gap:18px;align-items:center;margin-top:10px}
+.screen{border-radius:16px;border:1px solid var(--line);background:#0b1118;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.screen .bar{height:28px;background:#111827;display:flex;align-items:center;gap:6px;padding:0 12px}
+.screen .bar i{width:9px;height:9px;border-radius:50%;background:#374151}
+.mock{display:grid;grid-template-columns:150px 1fr;min-height:300px}
+.mock .side{border-right:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:8px}
+.mock .al{display:flex;gap:8px;align-items:center;font-size:.7em;color:var(--mut)}
+.mock .al b{display:block;color:var(--txt)}
+.mock .th{width:42px;height:26px;border-radius:5px;background:linear-gradient(135deg,#1e3a5f,#0f1f33);flex:none}
+.mock .tags{display:inline-block;margin-top:2px;padding:0 6px;border-radius:6px;font-size:.9em;background:rgba(59,130,246,.15);color:var(--acc2)}
+.mock .cams{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:8px}
+.cam{position:relative;border-radius:8px;min-height:120px;background:linear-gradient(160deg,#1b2b22 0%,#22332a 45%,#3a3f44 46%,#4a4d50 100%);overflow:hidden}
+.cam.b{background:linear-gradient(170deg,#1a2433 0%,#253246 55%,#3d3a36 56%,#55504a 100%)}
+.cam.c{background:linear-gradient(150deg,#20262e 0%,#2b3540 50%,#41403b 51%,#5a574f 100%)}
+.cam.d{background:linear-gradient(165deg,#262a1f 0%,#30382a 48%,#3e403c 49%,#4f514c 100%)}
+.cam .nm{position:absolute;left:8px;bottom:6px;font-size:.66em;color:#fff;display:flex;align-items:center;gap:5px}
+.cam .nm:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.cam .rec{position:absolute;left:8px;top:6px;font-size:.6em;background:#dc2626;color:#fff;padding:1px 6px;border-radius:5px}
+.cam .box{position:absolute;border:2px solid #22c55e;border-radius:3px}
+.cam .box span{position:absolute;top:-15px;left:-2px;font-size:.55em;background:#22c55e;color:#04120a;padding:0 4px;border-radius:3px;white-space:nowrap}
+.tv{border-radius:14px;border:8px solid #111;background:#000;aspect-ratio:16/10;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.tv .cams{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;height:100%}
+.tv .cam{min-height:0}
+.tv .cam.sel{outline:3px solid var(--acc);outline-offset:-3px}
+.tv:after{content:"";position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);width:90px;height:14px;border-radius:0 0 8px 8px;background:#111}
+.cap{color:var(--mut);font-size:.85em;text-align:center;margin-top:12px}
+.steps{counter-reset:s;display:grid;gap:14px}
+.step{display:flex;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.step:before{counter-increment:s;content:counter(s);flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--acc);color:#fff;font-weight:700}
+.step b{display:block;margin-bottom:2px}
+.step p{color:var(--mut);font-size:.93em}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+kbd{font-family:inherit;font-size:.85em;padding:1px 7px;border-radius:6px;border:1px solid var(--line);background:rgba(255,255,255,.05)}
+.keys{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:.93em;color:var(--mut)}
+.keys b{color:var(--txt);font-weight:600;white-space:nowrap}
+.priv{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.priv div{padding:18px;border-radius:14px;border:1px solid rgba(34,197,94,.2);background:rgba(34,197,94,.04)}
+.priv b{display:block;color:#86efac;margin-bottom:4px}
+.priv p{color:var(--mut);font-size:.92em}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--mut);margin-top:8px;font-size:.94em}
+.req{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.req div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.req ul{margin:8px 0 0 18px;color:var(--mut);font-size:.92em}
+.lic{background:linear-gradient(145deg,#10141e,#0a0c13);border:1px solid var(--line);border-radius:16px;padding:26px}
+.lic ul{margin:10px 0 0 20px;color:var(--mut)}
+.lic li b{color:var(--txt)}
+.flow{display:grid;grid-template-columns:1fr auto 1.4fr auto 1.2fr;gap:14px;align-items:stretch}
+.flow .node{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.flow .node.main{border-color:rgba(59,130,246,.45);background:linear-gradient(145deg,#0f1b30,#0a0f1a);box-shadow:0 0 40px rgba(59,130,246,.12)}
+.flow .node b{display:block;margin-bottom:6px}
+.flow .node p{color:var(--mut);font-size:.92em}
+.flow .badge{display:inline-block;margin-top:10px;font-size:.78em;padding:3px 10px;border-radius:50px;background:rgba(59,130,246,.12);color:var(--acc2)}
+.flow .arrow{display:grid;place-items:center;color:var(--acc2);font-size:1.6em}
+@media(max-width:820px){.flow{grid-template-columns:1fr}.flow .arrow{transform:rotate(90deg)}}
+footer{text-align:center;padding:40px 0 50px;color:var(--mut);font-size:.88em}
+footer a{color:var(--mut)}
+@media(max-width:820px){.shots,.two{grid-template-columns:1fr}.mock{grid-template-columns:1fr}.mock .side{display:none}nav .links{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#"><img src="icone.png" alt="">FTCam</a>
+      <div class="links"><a href="#como">Como funciona</a><a href="#recursos">Recursos</a><a href="#instalar">Instalar</a><a href="#tv">TV e celular</a><a href="#privacidade">Privacidade</a><a href="#duvidas">Dúvidas</a></div>
+    </nav>
+    <img class="logo" src="icone.png" alt="FTCam">
+    <h1>Suas câmeras gravando <span>no seu computador</span></h1>
+    <p class="sub">DVR grátis para câmeras IP, com inteligência artificial que confirma se é pessoa, carro ou animal antes de gravar. Sem nuvem, sem mensalidade e sem cadastro.</p>
+    <div class="pills"><span>Tapo e câmeras RTSP/ONVIF</span><span>IA no próprio PC</span><span>Reconhece rostos</span><span>App pra TV box e celular</span><span>Atualiza sozinho</span></div>
+    <div class="dl">
+      <a class="btn pri" href="https://github.com/facincanitech/ftcam/releases/latest/download/FTCam.zip">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5 10.5 4.4v7.1H3zm0 13 7.5 1.1v-7H3zm8.4 1.2L21 21v-8.5h-9.6zm0-15.4v7.2H21V3z"/></svg>
+        <span>Programa principal (Windows)<small>Instala, configura e grava · FTCam.zip</small></span></a>
+      <a class="btn sec" href="https://github.com/facincanitech/ftcam/releases/latest/download/FTCamTV.apk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8M8 2l4 3 4-3"/></svg>
+        <span>App pra assistir (Android)<small>TV box e celular · conecta no PC · FTCamTV.apk</small></span></a>
+    </div>
+    <p class="note">Grátis para usar · <a href="https://github.com/facincanitech/ftcam">código aberto para consulta</a> · <a href="https://github.com/facincanitech/ftcam/releases">todas as versões</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="como">
+  <h2>Como funciona</h2>
+  <p class="lead">São duas partes. O <b>programa do computador</b> é a central: é nele que você instala, configura e grava. Os <b>apps</b> só conectam nele pra assistir.</p>
+  <div class="flow">
+    <div class="node"><b>📷 Câmeras</b><p>Tapo e outras na sua rede</p></div>
+    <div class="arrow">→</div>
+    <div class="node main"><b>💻 Programa do computador</b><p>Central: você instala e configura aqui. Grava, detecta com IA, guarda os vídeos e reconhece rostos.</p><span class="badge">FTCam.zip · Windows</span></div>
+    <div class="arrow">→</div>
+    <div class="node"><b>📺📱 App TV box e celular</b><p>Só pra visualizar: ao vivo, som e gravações. Não grava nem configura, conecta no computador.</p><span class="badge">FTCamTV.apk · Android</span></div>
+  </div>
+  <p class="note" style="text-align:left">Ou seja: primeiro instale o programa no computador. O app sozinho não funciona, ele precisa de um computador com o FTCam ligado na mesma rede.</p>
+</section>
+
+<section id="recursos">
+  <h2>Tudo que um DVR profissional faz</h2>
+  <p class="lead">O computador vira a central das câmeras: grava, analisa e mostra ao vivo. Feito pra rodar até em notebook velho, ligado 24 horas.</p>
+  <div class="shots">
+    <div>
+      <div class="screen"><div class="bar"><i></i><i></i><i></i></div>
+        <div class="mock">
+          <div class="side">
+            <div class="al"><span class="th"></span><span><b>Frente</b>14:32 · 41s<br><span class="tags">Pessoa</span></span></div>
+            <div class="al"><span class="th"></span><span><b>Garagem</b>13:05 · 30s<br><span class="tags">Veículo</span></span></div>
+            <div class="al"><span class="th"></span><span><b>Quintal</b>11:47 · 69s<br><span class="tags">Animal</span></span></div>
+            <div class="al"><span class="th"></span><span><b>Frente</b>09:12 · 35s<br><span class="tags">Pessoa</span></span></div>
+          </div>
+          <div class="cams">
+            <div class="cam"><span class="rec">● REC</span><span class="box" style="left:52%;top:30%;width:14%;height:48%"><span>pessoa 91%</span></span><span class="nm">Frente</span></div>
+            <div class="cam b"><span class="box" style="left:18%;top:46%;width:40%;height:30%"><span>carro 88%</span></span><span class="nm">Garagem</span></div>
+            <div class="cam c"><span class="nm">Corredor</span></div>
+            <div class="cam d"><span class="box" style="left:62%;top:58%;width:16%;height:24%"><span>cachorro 84%</span></span><span class="nm">Quintal</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="cap">Programa no computador: câmeras ao vivo e lista de alertas (ilustração)</p>
+    </div>
+    <div>
+      <div class="tv"><div class="cams">
+        <div class="cam sel"><span class="nm">Frente</span></div><div class="cam b"><span class="nm">Garagem</span></div>
+        <div class="cam c"><span class="nm">Corredor</span></div><div class="cam d"><span class="nm">Quintal</span></div></div></div>
+      <p class="cap" style="margin-top:36px">App na TV box, pelo controle remoto (ilustração)</p>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:44px">
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg></div><h3>IA que confirma antes de gravar</h3><p>Árvore balançando, chuva e sombra não viram alerta. A IA confere se é pessoa, veículo ou animal, e dá zoom quando a pessoa está longe.</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="10" r="1.5"/><circle cx="15" cy="10" r="1.5"/><path d="M8 15c2 2 6 2 8 0"/></svg></div><h3>Reconhece rostos e pets</h3><p>Cadastre a família e o cachorro: o alerta mostra quem apareceu. Rostos novos ficam guardados pra você dar nome depois.</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3z"/><path d="M14 14h7v7h-7z" fill="currentColor" opacity=".35"/></svg></div><h3>Grade de detecção</h3><p>Pinte na imagem onde vale detectar e onde ignorar. A rua movimentada fica de fora, a sua porta fica de dentro.</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Grava o que importa</h3><p>Pega alguns segundos antes do movimento e segue até acabar. Apaga sozinho os mais velhos por dias ou por tamanho.</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></div><h3>Imagem alta e som ao vivo</h3><p>Vídeo na qualidade máxima da câmera usando a placa de vídeo, com som e volume até 300%.</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div><h3>Não desiste nunca</h3><p>Caiu a internet, a luz ou a câmera trocou de IP? Ele reconecta e acha a câmera de novo sozinho.</p></div>
+  </div>
+</section>
+
+<section id="instalar">
+  <h2>Instalar em 3 passos</h2>
+  <p class="lead">O instalador confere e baixa tudo que precisa (Python, ffmpeg e os modelos de IA), pedindo permissão de administrador uma vez.</p>
+  <div class="steps">
+    <div class="step"><div><b>Baixe e extraia o FTCam.zip</b><p>Use o botão "Baixar para Windows" acima e extraia numa pasta qualquer, por exemplo Downloads.</p></div></div>
+    <div class="step"><div><b>Rode o instalar.bat</b><p>Ele instala o FTCam na sua pasta de usuário (não em Arquivos de Programas), cria o atalho e, se quiser, deixa abrindo junto com o Windows.</p></div></div>
+    <div class="step"><div><b>Adicione suas câmeras</b><p>Clique em Câmeras → Procurar na rede. Na Tapo, use o usuário e a senha da <b>Conta da câmera</b> (app Tapo → câmera → Configurações avançadas → Conta da câmera), só com letras e números.</p></div></div>
+  </div>
+</section>
+
+<section id="tv">
+  <h2>Na TV box e no celular</h2>
+  <p class="lead">O app é só pra visualizar: ele conecta no FTCam do seu computador e mostra ao vivo, com som, e as gravações. Configurar câmeras, IA e gravação é sempre no computador. Como a tela vem do computador, o app acompanha as novidades sem precisar atualizar.</p>
+  <div class="two">
+    <div class="steps">
+      <div class="step"><div><b>Instale o FTCamTV.apk</b><p>Baixe pelo botão acima (no navegador da TV box ou no celular) e permita instalar de fontes desconhecidas quando o Android pedir. Funciona no Android 10 ou mais novo.</p></div></div>
+      <div class="step"><div><b>Coloque o endereço do computador</b><p>Aparece no FTCam em Sistema, algo como <kbd>192.168.1.7:8080</kbd>. O app também tem o botão "Procurar na rede".</p></div></div>
+      <div class="step"><div><b>Pronto</b><p>Se marcar, a TV box já abre nas câmeras quando ligar.</p></div></div>
+    </div>
+    <div class="feat">
+      <h3 style="margin-bottom:12px">Pelo controle remoto</h3>
+      <div class="keys">
+        <b>Setas</b><span>escolhem a câmera</span>
+        <b>OK</b><span>abre em tela cheia já com som; de novo liga e desliga o som</span>
+        <b>← na 1ª câmera</b><span>abre as gravações (↑↓ escolhe, OK assiste e pausa)</span>
+        <b>Voltar</b><span>volta pra grade; na grade, 2× sai</span>
+        <b>Menu</b><span>ajustes do app</span>
+      </div>
+      <p style="color:var(--mut);font-size:.9em;margin-top:14px">No celular aparece o layout de toque, só pra assistir.</p>
+    </div>
+  </div>
+</section>
+
+<section id="privacidade">
+  <h2>Seus dados ficam na sua casa</h2>
+  <p class="lead">Nada passa por servidor nosso, porque não existe servidor nosso.</p>
+  <div class="priv">
+    <div><b>Sem nuvem</b><p>Vídeos, fotos de rostos e senhas das câmeras ficam só no seu computador.</p></div>
+    <div><b>Sem conta e sem cadastro</b><p>Não pede e-mail, telefone nem login. Instalou, usou.</p></div>
+    <div><b>Rede local</b><p>O app da TV só enxerga o computador quando está no mesmo Wi-Fi. Dá pra colocar senha no painel.</p></div>
+    <div><b>Internet só pra atualizar</b><p>O FTCam só sai da sua rede pra conferir versão nova neste site oficial.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>O que precisa</h2>
+  <div class="req">
+    <div><b>Computador</b><ul><li>Windows 10 ou 11</li><li>4 GB de RAM (8 GB recomendado)</li><li>Qualquer processador dos últimos 10 anos</li><li>Ligado sempre que quiser gravar</li></ul></div>
+    <div><b>Câmeras</b><ul><li>Tapo (C200, C310, C320…)</li><li>Qualquer câmera com RTSP ou ONVIF</li><li>Na mesma rede do computador</li></ul></div>
+    <div><b>TV box / celular</b><ul><li>Android 10 ou mais novo</li><li>Na mesma rede do computador</li></ul></div>
+  </div>
+</section>
+
+<section id="duvidas">
+  <h2>Dúvidas</h2>
+  <details><summary>É grátis mesmo?</summary><p>É. Sem mensalidade, sem versão paga escondida e sem propaganda dentro do programa.</p></details>
+  <details><summary>Preciso atualizar na mão?</summary><p>Não. O FTCam confere este site sozinho, baixa a versão nova e reinicia sem mexer nas suas gravações e ajustes. Dá pra desligar isso nos Ajustes.</p></details>
+  <details><summary>A câmera precisa de cartão de memória?</summary><p>Não. O FTCam grava no computador. Se quiser, o cartão continua funcionando junto, como reserva pra quando o computador estiver desligado.</p></details>
+  <details><summary>Dá pra ver de fora de casa?</summary><p>Por enquanto o acesso é pela rede de casa. Dá pra usar uma VPN como o Tailscale pra acessar o painel de fora.</p></details>
+  <details><summary>O Windows Defender reclamou do instalador</summary><p>É comum com programas novos e gratuitos que não têm certificado pago. O código está aberto pra consulta no GitHub, pra quem quiser conferir.</p></details>
+</section>
+
+<section>
+  <h2>Licença</h2>
+  <div class="lic">
+    <p>O FTCam tem <b>código aberto para consulta</b>: qualquer um pode ver como ele funciona.</p>
+    <ul>
+      <li><b>Pode:</b> baixar, instalar e usar de graça, em casa ou no seu negócio, quantos aparelhos quiser.</li>
+      <li><b>Não pode:</b> modificar, redistribuir fora deste site, vender ou incluir em produto pago.</li>
+    </ul>
+    <p style="margin-top:12px"><a href="https://github.com/facincanitech/ftcam/blob/main/LICENSE">Ler a licença completa</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Feito por <a href="https://facincanitech.github.io/">FacincaniTech</a> · <a href="https://github.com/facincanitech/ftcam">GitHub</a> · © 2026
+</footer>
+</body>
+</html>
